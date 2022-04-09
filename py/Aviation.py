@@ -1,4 +1,7 @@
 """Aviation database script, scopes, cleans and puts the dataset ready for consumption
+
+Link: https://www.ntsb.gov/safety/data/Pages/Data_Stats.aspx
+Author: Rushabh Barbhaya
 """
 import datetime
 import os
