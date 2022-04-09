@@ -14,7 +14,7 @@ class Aviation:
     The Project is to get the number of people injured by aviation accidents and the time
     to make a statement on aircraft industry and it's automation againts safety
     """
-    def get_scope(self, scope_directory="./data"):
+    def get_scope(self, scope_directory="./data/aviation-injuries"):
         """get the whole scope of the dataset that is required for the analysis
 
         Args:
