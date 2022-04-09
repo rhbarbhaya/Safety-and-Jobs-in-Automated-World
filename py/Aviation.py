@@ -1,5 +1,4 @@
-"""
-l;asdkf;aosdfuh;asodf
+"""Aviation database script, scopes, cleans and puts the dataset ready for consumption
 """
 import datetime
 import os
@@ -83,7 +82,7 @@ class Aviation:
             return _data_
 
 
-    def state_scope(self, _data_, states=[]):
+    def state_scope(self, _data_, states=['AZ']):
         """Scope the dataset based on the states in a country filer, taken in a list
         argument of the states
         in a country code that is in dataset. Please refer to the ct_iaids dataset
@@ -104,7 +103,7 @@ class Aviation:
             print(f"Total records --- {new_data.shape[0]} across {new_data.shape[1]} columns")
             return new_data
         except Exception as error:
-            print(f"Error in processing records, NON_BREAKING")
+            print("Error in processing records, NON_BREAKING")
             print(f"Error\n{error}")
             return _data_
 
@@ -126,7 +125,7 @@ class Aviation:
             print(f"Total records --- {new_data.shape[0]} with {new_data.shape[1]} columns")
             return new_data
         except Exception as error:
-            print(f"Error in processing records, NON_BREAKING")
+            print("Error in processing records, NON_BREAKING")
             print(f"Error\n{error}")
             return _data_
 
@@ -181,10 +180,10 @@ class Aviation:
 
 
     def get_master_set(self):
-        """_summary_
+        """main block for controlling the whole application.
 
         Returns:
-            _type_: _description_
+            pandas.DataFrame: masters dataframe for analysis
         """
         self.setup_init()
         master_data = self.get_scope()

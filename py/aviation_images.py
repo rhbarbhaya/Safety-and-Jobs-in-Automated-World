@@ -1,26 +1,20 @@
-from pydoc import describe
+"""
+This script for gets the dataset and the plot for analysis
+"""
 from Aviation import Aviation
 import matplotlib.pyplot as plt
-import pandas as pd
 
 
 c = Aviation()
 master = c.get_master_set()
 print(master.head().to_string())
-# print(master.describe())
+print(master.describe())
 
 df = master.copy()
 df['ev_month'] = df['ev_month'].astype(int)
 df['ev_year'] = df['ev_year'].astype(int)
 df = df[['ev_year', 'ev_month', 'ground_injuries', 'total_injuries']]
 df = df.groupby(by=['ev_year'], sort=True, as_index=False).sum()
-# df['date'] = df['ev_month'].map(str)+ '-' +df['ev_year'].map(str)
-# df['date'] = pd.to_datetime(df['date'], format='%m-%Y').dt.strftime('%m-%Y')
-print(df)
-# fig, ax = plt.subplots()
-# plt.plot_date(df['ev_year'], df['ground_injuries'], color='blue')
-# plt.plot_date(df['ev_year'], df['total_injuries'], color='green')
-# plt.show()
 
 #Plot configuration
 fig, ax1 = plt.subplots()
