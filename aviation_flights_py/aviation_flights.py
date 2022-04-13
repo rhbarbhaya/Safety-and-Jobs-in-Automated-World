@@ -1,6 +1,8 @@
 """
 Project submission towards the ANLY 699 project
 This project shows the flight information and getting some trend lines
+https://transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FIL&QO_fu146_anzr=Nv4%20Pn44vr45
+https://jblevins.org/notes/airline-data
 """
 import os
 import matplotlib.pyplot as plt
