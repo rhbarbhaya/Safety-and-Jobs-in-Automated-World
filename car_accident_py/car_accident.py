@@ -11,19 +11,22 @@ class Car_Accident:
     def __init__(self):
         self.main()
 
-    def read_files(self, input_file_path):
-        try:
-            return pd.read_csv(input_file_path, low_memory=False)
-        except UnicodeDecodeError:
-            print(input_file_path)
+    def read_files(self, directory, files):
+        accident = pd.DataFrame()
+        vehicle = pd.DataFrame()
+        for file in files:
+            if 'accident' in file.lower() :
+                accident = pd.read_csv(os.path.join(directory, file), low_memory=False)
+                if 'ST_CASE' in accident.columns:
+                    
+            if 'vehicle' in file.lower() :
+                vehicle = pd.read_csv(os.path.join(directory, file), low_memory=False)
+        _data_ = accident.merge(vehicle, left_on='ST_CASE', right_on='ST_CASE', how='left')
+
 
     def main(self):
-        for directory, folder, files in os.walk('../data/car-accident'):
-            for file in files:
-                if 'accident' in file.lower():
-                    accident = self.read_files('../data/car-accident/FARS1975NationalCSV/'+file)
-                if 'vehicle' in file.lower():
-                    vehicle = self.read_files('../data/car-accident/FARS1975NationalCSV/' + file)
-            _data_ = pd.merge(accident, vehicle, on='ST_CASE')
+        for directory, _, files in os.walk('../data/car-accident'):
+            _data_ = self.read_files(directory, files)
+            # print(_data_.head(1))
 
 Car_Accident()
