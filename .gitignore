@@ -130,9 +130,3 @@ dmypy.json
 .pyre/
 data/*
 **/.DS_Store
-!/make.bat
-!/Makefile
-!/build/
-!/source/
-!/make.bat
-!/Makefile
