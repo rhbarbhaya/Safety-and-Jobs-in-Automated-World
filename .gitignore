@@ -134,3 +134,5 @@ data/*
 !/Makefile
 !/build/
 !/source/
+!/make.bat
+!/Makefile
