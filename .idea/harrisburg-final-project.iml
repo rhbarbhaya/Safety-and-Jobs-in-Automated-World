@@ -3,6 +3,9 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/aviation-jobs-py/.ipynb_checkpoints" />
+      <excludeFolder url="file://$MODULE_DIR$/data/aviation-injuries" />
+      <excludeFolder url="file://$MODULE_DIR$/data/aviaton-jobs" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8 (harrisburg-final-project)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
