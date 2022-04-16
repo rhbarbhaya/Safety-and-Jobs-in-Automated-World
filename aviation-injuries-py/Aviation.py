@@ -14,7 +14,7 @@ class Aviation:
     The Project is to get the number of people injured by aviation accidents and the time
     to make a statement on aircraft industry and it's automation againts safety
     """
-    def get_scope(self, scope_directory="./data/aviation-injuries"):
+    def get_scope(self, scope_directory="../data/aviation-injuries"):
         """get the whole scope of the dataset that is required for the analysis
 
         Args:
@@ -190,8 +190,11 @@ class Aviation:
         """
         self.setup_init()
         master_data = self.get_scope()
+        print(master_data.shape)
         country_scoped = self.country_scope(master_data)
-        dupes_removed= self.remove_dupes(country_scoped)
+        print(country_scoped.shape)
+        dupes_removed = self.remove_dupes(country_scoped)
+        print(dupes_removed.shape)
         master = self.total_injuries(dupes_removed)
         print(f"dataset shape --- {master.shape}")
         print("-"*65)

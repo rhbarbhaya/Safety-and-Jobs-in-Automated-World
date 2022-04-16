@@ -36,10 +36,12 @@ class Aviation:
             sort=True,
             as_index=True
         )['UNIQUE_CARRIER'].count().reset_index(name='Flights')
+        print(_data_.to_string())
         plt.scatter(_data_['YEAR'], _data_['Flights'], label='Flights by year')
         plt.xlabel("Year")
         plt.ylabel("Flights")
-        plt.title("Count of Flights by Major Airline(s) in the USA by Year")
+        # plt.title("Count of Flights by Major Airline(s) in the USA by Year")
+        plt.grid(visible=True, linestyle=':')
         plt.legend()
         plt.show()
 
@@ -54,6 +56,9 @@ class Aviation:
         for file in os.listdir(data_directory):
             _data_ = pd.concat([self.read_dataset(os.path.join(data_directory, file)), _data_])
         print("File Read Complete")
+        # _data_.to_csv("../output/aviation_flights/aviation_flights.csv")
+        # print(_data_.describe().apply(lambda s: s.apply('{0:.5f}'.format)))
+        # print(_data_.shape)
         self.data_graph(_data_)
 
 

@@ -15,7 +15,7 @@ class AviationJobs:
     def __init__(self) -> None:
         pass
 
-    def read_dataset(self, filepath='./data/aviaton-jobs/file.csv') -> object:
+    def read_dataset(self, filepath='../data/aviaton-jobs/file.csv') -> object:
         """Function for reading the dataset and returning the resulting pandas.DataFrame
 
         Args:
@@ -41,11 +41,14 @@ class AviationJobs:
             Defaults to False.
         """
         _data_ = _data_.groupby(by=groupby, sort=sort, as_index=as_index)[summing_value].sum()
+        _data_ = _data_.drop(_data_.tail(1).index)
         plt.scatter(_data_['Year'], _data_['Value'], color='blue',
         label='Jobs in aviation industry')
+        print(_data_.to_string())
         plt.xlabel("Year")
         plt.ylabel("Jobs")
-        plt.title("Jobs in aviation industry by year")
+        plt.grid(visible=True, linestyle=':')
+        # plt.title("Jobs in aviation industry by year")
         plt.legend()
         plt.show()
         return None
@@ -54,6 +57,7 @@ class AviationJobs:
         """Main controller of the whole script
         """
         jobs_dataset = self.read_dataset()
+        jobs_dataset.to_csv("../output/aviation_jobs/aviation_jobs.csv")
         self.plot_data_by_group(jobs_dataset, groupby=['Year'], summing_value='Value')
 
 AviationJobs().results()
