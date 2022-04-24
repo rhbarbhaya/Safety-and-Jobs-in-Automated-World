@@ -42,14 +42,15 @@ class CarAccident:
         return None
 
     @staticmethod
-    def data_graph(data) -> None:
+    def data_graph(_data_) -> None:
         """Plotting the dataset to a timeseries graph by the year
         :param data: dataset scoped for plotting
         :type data: object
         :return: plots the dataset to a timeline
         :rtype: None
         """
-        _data_ = data.groupby(
+        print(_data_.head())
+        _data_ = _data_.groupby(
             by=[
                 'YEAR'
             ],
